@@ -1,0 +1,103 @@
+#Q.1-
+def fact(n):
+    if(n==0 or n==1):
+        return 1
+  
+    elif(n>1):
+        return n*(fact(n-1))
+    else:
+        return -1
+n=int(input ("Enter a no. : "))
+print(fact(n))
+#Q.2-
+def fibo(n,a,b,l):
+    if n==1:
+        return a
+    elif n==2:
+        return l
+    elif(n>2):
+        a,b=b,a+b
+        l.append(b)
+        n-=1
+        return fibo(n,a,b,l)
+    else :
+        return -1
+n=int(input ("Enter a no. : "))
+print("Fibonacci series up to n is : ",fibo(n,0,1,l=[0,1]))
+#Q.3-
+def sofno(n,sum):
+    if n==0:
+        return sum
+    elif n>0:
+        sum+=n%10
+        n=n//10
+        return sofno(n,sum)
+    else :
+        return -1
+n=int(input ("Enter a no. : "))
+print("Sum of digits = ",sofno(n,0))
+​#Q.4-
+def gcd (m,n,g,i):
+        if(m==0 or n==0):
+            return 0
+        if(m//i==m/i and n//i==n/i):
+            m=m/i
+            n=n/i
+            g=g*i
+            i-=1
+            if(i==1):
+                return g
+            elif(i>1):
+                return gcd(m,n,g,i)
+        else:
+            i-=1
+            if(i==1 ):
+                return g
+            elif(i>1):
+                return gcd(m,n,g,i)        
+m=int(input ("Enter first no. : "))
+n=int(input ("Enter second no. : "))
+i=m
+if m>n:
+    i=n
+print("GCD = ",gcd(m,n,1,i))
+#Q.5-
+def pow(a,b):
+    if b==1:
+        return a
+    elif(b>1):
+        return a*pow(a,b-1)
+    elif b==0:
+        return 1
+    else :
+        b=-b
+        return 1/(a*pow(a,b-1))
+a=int(input ("Enter a no. : "))
+b=int(input ("Enter power : "))
+print(pow(a,b))
+#Q.6-
+def dectobin(n,bin):
+    if n==0:
+        return bin
+    elif(n>0):
+        bin=str(n%2)+bin
+        n=n//2
+        return dectobin(n,bin)
+        
+        
+n=int(input ("Enter a no. : "))
+bin=""
+if n==0:
+    print("Binary representation of ",n," is :", 0)
+else:
+    print("Binary representation of ",n," is :",dectobin(n,bin))
+#Q.7-
+def gpsums(a,r,n):
+    if n<=0:
+        return 0
+    else:
+        return a + gpsums(a*r,r,n-1)        
+a=int(input ("Enter first term : "))
+r=int(input ("Enter ratio : "))
+n=int(input ("Enter no. of terms : "))
+print(gpsums(a,r,n))
