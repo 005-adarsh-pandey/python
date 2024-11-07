@@ -1,0 +1,46 @@
+import math 
+dic={21965:[23,54,87,57,98],21942:[43,98,76,86,49],21953:[75,96,54,34,64]}
+n=dict(map(lambda i :[ i[0],[sum(i[1]),sum(i[1])/len(i[1])]],dic.items()))
+print (dic)
+print (n)
+
+#list comprehension
+n1=int(input("Enter no of elements in l1: "))
+n2=int(input("Enter no of elements in l2: "))
+l1=[]
+l2=[]
+# l1=[l1.insert(i,int (input("enter : "))) for i in range (n) ]
+for i in range (n1):
+    l1.append(int (input("Enter l1: ")))
+for i in range (n2):
+    l2.append(int (input("Enter l2: ")))
+print (l1)
+print (l2)
+k=int(input("Enter element to be found : "))
+l3=[[i,j]  for i in l1 for j in l2 if(i+j==k)]
+print(l3)
+
+list1=[2,4,6,10,[2,10,4],[5,6,7,8]]
+sum1=0
+for i in range(len(list1)):
+    if(type(list1[i])==int):
+        sum1+=list1[i]
+    else:
+        for j in list1[i]:
+            sum1+=j
+print(sum1)            
+
+def list_s(list1,sum1,i,j,ch):
+    if type(list1[i]==int):
+        sum1+=list1[i]
+        if ch==True:
+            i+=1
+        else:
+            j+=1
+        return list_s(list1,sum1,i,j,ch)
+    else:
+        return list_s(list1[i],sum1,i,0,False)
+        ch=True
+    return sum1
+list1=[2,4,6,10,[2,10,4],[5,6,7,8]]
+print(list_s(list1,sum1=0,i=0,j=0,ch=True))
