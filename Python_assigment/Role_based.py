@@ -16,6 +16,7 @@ def modify_settings(user):
 def update_software(user):
     print(f"{user['name']} updated the software.")
 
+
 # Users
 users = [
     {"name": "Kabir", "role": "Admin"},
@@ -27,3 +28,4 @@ modify_settings(users[0])  # Admin user
 modify_settings(users[1])  # Non-Admin user
 update_software(users[0])  # Admin user
 update_software(users[1])  # Non-Admin user
+check_admin(update_software)(users[1])
